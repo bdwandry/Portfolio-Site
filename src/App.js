@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
+//Page Routes
+import NavigationAppBar from "./Navigation-Bar/NavigationAppBar";
+import Home from './Page-Information/main';
+import About from './Page-Information/about';
+import Contact from './Page-Information/contact';
+import Resume from './Page-Information/resume'
+import Minecraft from './Page-Information/minecraft'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <NavigationAppBar/>
+            <Routes>
+                <Route exact path='/' exact element={<Home />} />
+                <Route path='/about' element={<About/>} />
+                <Route path='/contact' element={<Contact/>} />
+                <Route path='/resume' element={<Resume/>} />
+                <Route path='/minecraft' element={<Minecraft/>} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
