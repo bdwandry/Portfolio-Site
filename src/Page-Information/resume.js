@@ -1,10 +1,11 @@
-import React from "react";
+import React from 'react';
+import ResumePDF from "../Files/Bryan Wandrych - Resume.pdf"
+
 const Resume = () => {
     return (
         <div>
-            <h1>
-                Resume
-            </h1>
+            <h1>Resume</h1>
+            <h3>If you would like to view my resume: <a href={ResumePDF}>Click Here</a> </h3>
         </div>
     );
 };
