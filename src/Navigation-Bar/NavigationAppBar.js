@@ -30,7 +30,7 @@ const Navbar = () => {
                         <img src={resume} width={"25"} height={"25"}/> Resume
                     </IconButton>
 
-                    <IconButton color="inherit" edge="start" component={Link} to="/minecraft">
+                    <IconButton color="inherit" edge="start" href={"https://minecraft.bryanwandrych.com/"}>
                         <img src={minecraft} width={"25"} height={"25"}/> Minecraft
                     </IconButton>
                 </Toolbar>
