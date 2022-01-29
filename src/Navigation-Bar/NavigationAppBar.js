@@ -8,6 +8,7 @@ import about from "../Icons/about.png";
 import contact from "../Icons/contact.png";
 import resume from "../Icons/resume.png";
 import minecraft from "../Icons/minecraft.png";
+import github from "../Icons/github.png"
 
 const Navbar = () => {
     return (
@@ -30,8 +31,12 @@ const Navbar = () => {
                         <img src={resume} width={"25"} height={"25"}/> Resume
                     </IconButton>
 
-                    <IconButton color="inherit" edge="start" href={"https://minecraft.bryanwandrych.com/"}>
+                    <IconButton color="inherit" edge="start" component={Link} to="/minecraft">
                         <img src={minecraft} width={"25"} height={"25"}/> Minecraft
+                    </IconButton>
+
+                    <IconButton color="inherit" edge="start" href={"https://github.com/bdwandry/"}>
+                        <img src={github} width={"25"} height={"25"}/> Github
                     </IconButton>
                 </Toolbar>
             </AppBar>
