@@ -14,13 +14,15 @@ function App() {
     return (
         <Router>
             <NavigationAppBar/>
-            <Routes>
-                <Route exact path='/' exact element={<Home />} />
-                <Route path='/about' element={<About/>} />
-                <Route path='/contact' element={<Contact/>} />
-                <Route path='/resume' element={<Resume/>} />
-                <Route path='/minecraft' element={<Minecraft/>} />
-            </Routes>
+            <div style={{paddingLeft: 250}}>
+                <Routes>
+                    <Route exact path='/' exact element={<Home />} />
+                    <Route path='/about' element={<About/>} />
+                    <Route path='/contact' element={<Contact/>} />
+                    <Route path='/resume' element={<Resume/>} />
+                    <Route path='/minecraft' element={<Minecraft/>} />
+                </Routes>
+            </div>
         </Router>
     );
 }
