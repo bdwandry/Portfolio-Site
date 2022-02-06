@@ -1,5 +1,7 @@
 import React from "react";
-const Contact = () => {
+const Contact = ({handlePageLocation}) => {
+    handlePageLocation("Contact")
+
     return (
         <div>
             <h1>Contact</h1>

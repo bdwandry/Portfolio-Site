@@ -31,7 +31,6 @@ import Contact from "../Page-Information/contact";
 import Resume from "../Page-Information/resume";
 import Minecraft from "../Page-Information/minecraft";
 const drawerWidth = 240;
-
 const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
@@ -65,6 +64,12 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 function NavBar() {
+    //Page Location Information
+    const [locationWindow, setlocationWindow] = React.useState("");
+    function handlePageLocation( e ) {
+        setlocationWindow(e)
+    }
+
     const DifferentPages = [
         {Text: "Home", location: "/", Image: home},
         {Text: "About", location: "/about", Image: about},
@@ -111,8 +116,8 @@ function NavBar() {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap>
-                        Responsive drawer
+                    <Typography variant="h5" noWrap>
+                         {locationWindow}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -159,11 +164,11 @@ function NavBar() {
                 sx={{ marginTop: 35, rflexGrow: 0, p: 1, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Routes>
-                    <Route exact path='/' exact element={<Home />} />
-                    <Route path='/about' element={<About/>} />
-                    <Route path='/contact' element={<Contact/>} />
-                    <Route path='/resume' element={<Resume/>} />
-                    <Route path='/minecraft' element={<Minecraft/>} />
+                    <Route exact path='/' exact element={<Home handlePageLocation={handlePageLocation}/>} />
+                    <Route path='/about' element={<About handlePageLocation={handlePageLocation}/>} />
+                    <Route path='/contact' element={<Contact handlePageLocation={handlePageLocation}/>} />
+                    <Route path='/resume' element={<Resume handlePageLocation={handlePageLocation}/>} />
+                    <Route path='/minecraft' element={<Minecraft handlePageLocation={handlePageLocation}/>} />
                 </Routes>
             </Box>
         </div>

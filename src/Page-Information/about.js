@@ -1,5 +1,7 @@
 import React from "react";
-const About = () => {
+const About = ({handlePageLocation}) => {
+    handlePageLocation("About")
+
     return (
         <div>
             <h1>About</h1>

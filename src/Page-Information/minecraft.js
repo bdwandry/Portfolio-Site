@@ -1,6 +1,8 @@
 import React from 'react';
 
-const Minecraft = () => {
+const Minecraft = ({handlePageLocation}) => {
+    handlePageLocation("Minecraft")
+
     return (
         <div>
             <h1>Minecraft - Please note this website is a work in progress.</h1>

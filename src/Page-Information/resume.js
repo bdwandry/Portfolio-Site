@@ -1,7 +1,9 @@
 import React from 'react';
 import ResumePDF from "../Files/Bryan Wandrych - Resume.pdf"
 
-const Resume = () => {
+const Resume = ({handlePageLocation}) => {
+    handlePageLocation("Resume")
+
     return (
         <div>
             <h1>Resume</h1>
