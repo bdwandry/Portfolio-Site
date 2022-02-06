@@ -32,6 +32,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {Link, Route, Routes} from "react-router-dom";
 import {Box} from "@material-ui/core";
+import Divider from '@mui/material/Divider';
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -98,11 +99,15 @@ function NavBar() {
         <div>
             <List>
                 {DifferentPages.map((Text) => (
-                    <ListItem button component={Link} to={Text.location}>
+                    <div>
+                        <ListItem button component={Link} to={Text.location}>
                         <img src={Text.Image} width={"25"} height={"25"}/>
                         <ListItemText primary={Text.Text} />
                     </ListItem>
+                    <Divider />
+                    </div>
                 ))}
+                {/*<Divider />*/}
                 <ListItem button href={"https://github.com/bdwandry/"}>
                     <img src={github} width={"25"} height={"25"}/>
                     <ListItemText>
