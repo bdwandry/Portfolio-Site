@@ -23,7 +23,13 @@ import CloseIcon from '@material-ui/icons/Close';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import {Link} from "react-router-dom";
+import {Link, Route, Routes} from "react-router-dom";
+import {Box} from "@material-ui/core";
+import Home from "../Page-Information/main";
+import About from "../Page-Information/about";
+import Contact from "../Page-Information/contact";
+import Resume from "../Page-Information/resume";
+import Minecraft from "../Page-Information/minecraft";
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -147,6 +153,19 @@ function NavBar() {
             <div className={classes.content}>
                 <div className={classes.toolbar} />
             </div>
+
+            <Box
+                component="main"
+                sx={{ marginTop: 35, rflexGrow: 0, p: 1, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+            >
+                <Routes>
+                    <Route exact path='/' exact element={<Home />} />
+                    <Route path='/about' element={<About/>} />
+                    <Route path='/contact' element={<Contact/>} />
+                    <Route path='/resume' element={<Resume/>} />
+                    <Route path='/minecraft' element={<Minecraft/>} />
+                </Routes>
+            </Box>
         </div>
     );
 }
@@ -154,41 +173,3 @@ NavBar.propTypes = {
     container: PropTypes.object,
 };
 export default NavBar;
-
-//--------------------------------------------------------------------------------------------------------------------//
-//
-// const Navbar = () => {
-//     return (
-//         <div>
-//             <AppBar position="static">
-//                 <Toolbar>
-//                     <IconButton color="inherit" edge="start" component={Link} to="/">
-//                         <img src={home} width={"25"} height={"25"}/> Home
-//                     </IconButton>
-//
-//                     <IconButton color="inherit" edge="start" component={Link} to="/about">
-//                         <img src={about} width={"25"} height={"25"}/> About
-//                     </IconButton>
-//
-//                     <IconButton color="inherit" edge="start" component={Link} to="/contact">
-//                         <img src={contact} width={"25"} height={"25"}/> Contact
-//                     </IconButton>
-//
-//                     <IconButton color="inherit" edge="start" component={Link} to="/resume">
-//                         <img src={resume} width={"25"} height={"25"}/> Resume
-//                     </IconButton>
-//
-//                     <IconButton color="inherit" edge="start" component={Link} to="/minecraft">
-//                         <img src={minecraft} width={"25"} height={"25"}/> Minecraft
-//                     </IconButton>
-//
-//                     <IconButton color="inherit" edge="start" href={"https://github.com/bdwandry/"}>
-//                         <img src={github} width={"25"} height={"25"}/> Github
-//                     </IconButton>
-//                 </Toolbar>
-//             </AppBar>
-//         </div>
-//     );
-// };
-//
-// export default Navbar;
