@@ -1,6 +1,9 @@
 import React from "react";
-const Contact = ({handlePageLocation}) => {
+import contact from '../Icons/contact.png'
+
+const Contact = ({handlePageLocation, handlePictureChange}) => {
     handlePageLocation("Contact")
+    handlePictureChange(contact)
 
     return (
         <div>

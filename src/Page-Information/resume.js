@@ -1,8 +1,10 @@
 import React from 'react';
 import ResumePDF from "../Files/Bryan Wandrych - Resume.pdf"
+import resume from '../Icons/resume.png'
 
-const Resume = ({handlePageLocation}) => {
+const Resume = ({handlePageLocation, handlePictureChange}) => {
     handlePageLocation("Resume")
+    handlePictureChange(resume)
 
     return (
         <div>

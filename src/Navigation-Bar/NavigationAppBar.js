@@ -8,6 +8,13 @@ import resume from "../Icons/resume.png";
 import minecraft from "../Icons/minecraft.png";
 import github from "../Icons/github.png"
 
+//Routing Page imports
+import Home from "../Page-Information/main";
+import About from "../Page-Information/about";
+import Contact from "../Page-Information/contact";
+import Resume from "../Page-Information/resume";
+import Minecraft from "../Page-Information/minecraft";
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
@@ -25,11 +32,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {Link, Route, Routes} from "react-router-dom";
 import {Box} from "@material-ui/core";
-import Home from "../Page-Information/main";
-import About from "../Page-Information/about";
-import Contact from "../Page-Information/contact";
-import Resume from "../Page-Information/resume";
-import Minecraft from "../Page-Information/minecraft";
+
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
     root: {
@@ -68,6 +71,13 @@ function NavBar() {
     const [locationWindow, setlocationWindow] = React.useState("");
     function handlePageLocation( e ) {
         setlocationWindow(e)
+    }
+
+    //Picture Information
+    const [picture, setPicture] = React.useState(home);
+    function handlePictureChange( e ) {
+        console.log(e)
+        setPicture(e)
     }
 
     const DifferentPages = [
@@ -117,7 +127,7 @@ function NavBar() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h5" noWrap>
-                         {locationWindow}
+                        <img src={picture} width={"25"} height={"25"}/> {locationWindow}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -164,11 +174,11 @@ function NavBar() {
                 sx={{ marginTop: 35, rflexGrow: 0, p: 1, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Routes>
-                    <Route exact path='/' exact element={<Home handlePageLocation={handlePageLocation}/>} />
-                    <Route path='/about' element={<About handlePageLocation={handlePageLocation}/>} />
-                    <Route path='/contact' element={<Contact handlePageLocation={handlePageLocation}/>} />
-                    <Route path='/resume' element={<Resume handlePageLocation={handlePageLocation}/>} />
-                    <Route path='/minecraft' element={<Minecraft handlePageLocation={handlePageLocation}/>} />
+                    <Route exact path='/' exact element={<Home handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange}/>} />
+                    <Route path='/about' element={<About handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange}/>} />
+                    <Route path='/contact' element={<Contact handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange}/>} />
+                    <Route path='/resume' element={<Resume handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange}/>} />
+                    <Route path='/minecraft' element={<Minecraft handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange}/>} />
                 </Routes>
             </Box>
         </div>

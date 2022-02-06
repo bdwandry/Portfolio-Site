@@ -1,6 +1,9 @@
 import React from "react";
-const About = ({handlePageLocation}) => {
+import about from '../Icons/about.png'
+
+const About = ({handlePageLocation, handlePictureChange}) => {
     handlePageLocation("About")
+    handlePictureChange(about)
 
     return (
         <div>
