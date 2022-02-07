@@ -146,7 +146,7 @@ function NavBar() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h5" noWrap>
-                        <img src={picture} width={"25"} height={"25"}/> {locationWindow}
+                        <img src={picture} width={"25"} height={"25"} style={{filter: "invert(1)"}}/> {locationWindow}
                     </Typography>
                 </Toolbar>
             </AppBar>
