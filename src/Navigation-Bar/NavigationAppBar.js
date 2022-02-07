@@ -8,6 +8,7 @@ import contact from "../Icons/contact.png";
 import resume from "../Icons/resume.png";
 import minecraft from "../Icons/minecraft.png";
 import github from "../Icons/github.png"
+import linkedin from "../Icons/linkedin.png"
 
 //Routing Page imports
 import Home from "../Page-Information/main";
@@ -123,10 +124,16 @@ function NavBar() {
                     </div>
                 ))}
                 {/*<Divider />*/}
-                <ListItem button href={"https://github.com/bdwandry/"}>
+                <ListItem button component="a" href={"https://github.com/bdwandry/"}>
                     <img src={github} width={"25"} height={"25"}/>
                     <ListItemText>
                         Github
+                    </ListItemText>
+                </ListItem>
+                <ListItem button component="a" href={"https://www.linkedin.com/in/bryan-wandrych/"}>
+                    <img src={linkedin} width={"25"} height={"25"}/>
+                    <ListItemText>
+                        Linkedin
                     </ListItemText>
                 </ListItem>
             </List>
