@@ -1,9 +1,10 @@
 import React from 'react';
 import minecraft from '../Icons/minecraft.png'
 
-const Minecraft = ({handlePageLocation, handlePictureChange}) => {
+const Minecraft = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
     handlePageLocation("Minecraft")
     handlePictureChange(minecraft)
+    changeFavicon(minecraft)
 
     return (
         <div>

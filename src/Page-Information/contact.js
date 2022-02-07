@@ -1,9 +1,10 @@
 import React from "react";
 import contact from '../Icons/contact.png'
 
-const Contact = ({handlePageLocation, handlePictureChange}) => {
+const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
     handlePageLocation("Contact")
     handlePictureChange(contact)
+    changeFavicon(contact)
 
     return (
         <div>

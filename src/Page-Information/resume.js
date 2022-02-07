@@ -2,9 +2,10 @@ import React from 'react';
 import ResumePDF from "../Files/Bryan Wandrych - Resume.pdf"
 import resume from '../Icons/resume.png'
 
-const Resume = ({handlePageLocation, handlePictureChange}) => {
+const Resume = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
     handlePageLocation("Resume")
     handlePictureChange(resume)
+    changeFavicon(resume)
 
     return (
         <div>

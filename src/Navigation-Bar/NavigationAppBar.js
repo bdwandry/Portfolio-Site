@@ -1,4 +1,5 @@
 //Used code: https://medium.com/@tsubasakondo_36683/create-responsive-drawer-menu-with-react-material-ui-617a42764b69
+import React from 'react';
 
 //Picture/Icon Imports
 import home from "../Icons/home.png";
@@ -15,7 +16,7 @@ import Contact from "../Page-Information/contact";
 import Resume from "../Page-Information/resume";
 import Minecraft from "../Page-Information/minecraft";
 
-import React from 'react';
+//Material UI Appbar and Drawer Styling
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -34,6 +35,7 @@ import {Link, Route, Routes} from "react-router-dom";
 import {Box} from "@material-ui/core";
 import Divider from '@mui/material/Divider';
 
+//Appbar and Drawer Styling
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
     root: {
@@ -67,6 +69,12 @@ const useStyles = makeStyles(theme => ({
         marginLeft: 0,
     },
 }));
+
+//Favicon Icon
+function getFaviconEl() {
+    return document.getElementById("favicon");
+}
+
 function NavBar() {
     //Page Location Information
     const [locationWindow, setlocationWindow] = React.useState("");
@@ -77,10 +85,16 @@ function NavBar() {
     //Picture Information
     const [picture, setPicture] = React.useState(home);
     function handlePictureChange( e ) {
-        console.log(e)
         setPicture(e)
     }
 
+    //Favicon Icon Change (Changes the picture inside the tabs).
+    const changeFavicon = ( e ) => {
+        const favicon = getFaviconEl(); // Accessing favicon element
+        favicon.href = e;
+    };
+
+    //Drawer List
     const DifferentPages = [
         {Text: "Home", location: "/", Image: home},
         {Text: "About", location: "/about", Image: about},
@@ -179,11 +193,11 @@ function NavBar() {
                 sx={{ marginTop: 35, rflexGrow: 0, p: 1, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Routes>
-                    <Route exact path='/' exact element={<Home handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange}/>} />
-                    <Route path='/about' element={<About handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange}/>} />
-                    <Route path='/contact' element={<Contact handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange}/>} />
-                    <Route path='/resume' element={<Resume handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange}/>} />
-                    <Route path='/minecraft' element={<Minecraft handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange}/>} />
+                    <Route exact path='/' exact element={<Home handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange} changeFavicon={changeFavicon}/>} />
+                    <Route path='/about' element={<About handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange} changeFavicon={changeFavicon}/>} />
+                    <Route path='/contact' element={<Contact handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange} changeFavicon={changeFavicon}/>} />
+                    <Route path='/resume' element={<Resume handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange} changeFavicon={changeFavicon}/>} />
+                    <Route path='/minecraft' element={<Minecraft handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange} changeFavicon={changeFavicon}/>} />
                 </Routes>
             </Box>
         </div>

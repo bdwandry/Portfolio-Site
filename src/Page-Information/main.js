@@ -1,9 +1,10 @@
 import React from 'react';
 import home from '../Icons/home.png'
 
-const Home = ({handlePageLocation, handlePictureChange}) => {
-    handlePageLocation("Home")
-    handlePictureChange(home)
+const Home = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
+    handlePageLocation("Home");
+    handlePictureChange(home);
+    changeFavicon(home);
 
     return (
         <div>
