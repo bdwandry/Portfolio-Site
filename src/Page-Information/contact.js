@@ -1,10 +1,14 @@
-import React from "react";
+import React, {useEffect} from "react";
 import contact from '../Icons/contact.png'
 
 const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
     handlePageLocation("Contact")
     handlePictureChange(contact)
     changeFavicon(contact)
+
+    useEffect(() => {
+        document.title = "Contact Information"
+    }, [])
 
     return (
         <div>

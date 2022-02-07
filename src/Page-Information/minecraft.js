@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import minecraft from '../Icons/minecraft.png'
 
 const Minecraft = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
     handlePageLocation("Minecraft")
     handlePictureChange(minecraft)
     changeFavicon(minecraft)
+
+    useEffect(() => {
+        document.title = "Minecraft Server"
+    }, [])
 
     return (
         <div>

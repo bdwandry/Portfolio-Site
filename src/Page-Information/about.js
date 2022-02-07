@@ -1,10 +1,14 @@
-import React from "react";
+import React, {useEffect} from "react";
 import about from '../Icons/about.png'
 
 const About = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
     handlePageLocation("About");
     handlePictureChange(about);
     changeFavicon(about);
+
+    useEffect(() => {
+        document.title = "About Me"
+    }, [])
 
     return (
         <div>

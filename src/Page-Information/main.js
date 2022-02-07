@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import home from '../Icons/home.png'
 
 const Home = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
     handlePageLocation("Home");
     handlePictureChange(home);
     changeFavicon(home);
+
+    useEffect(() => {
+        document.title = "Bryan Wandrych Portfolio"
+    }, [])
 
     return (
         <div>
