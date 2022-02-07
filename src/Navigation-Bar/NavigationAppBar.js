@@ -49,6 +49,7 @@ const useStyles = makeStyles(theme => ({
     },
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
+        background : '#2E3B55',
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -145,7 +146,7 @@ function NavBar() {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h5" noWrap>
+                    <Typography variant="h5" align="center" noWrap style={{width: "100%", alignItems: "center"}}>
                         <img src={picture} width={"25"} height={"25"} style={{filter: "invert(1)"}}/> {locationWindow}
                     </Typography>
                 </Toolbar>
