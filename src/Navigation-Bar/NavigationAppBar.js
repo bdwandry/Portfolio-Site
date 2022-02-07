@@ -123,13 +123,13 @@ function NavBar() {
                     <Divider />
                     </div>
                 ))}
-                {/*<Divider />*/}
                 <ListItem button component="a" href={"https://github.com/bdwandry/"}>
                     <img src={github} width={"25"} height={"25"}/>
                     <ListItemText>
                         Github
                     </ListItemText>
                 </ListItem>
+                <Divider />
                 <ListItem button component="a" href={"https://www.linkedin.com/in/bryan-wandrych/"}>
                     <img src={linkedin} width={"25"} height={"25"}/>
                     <ListItemText>
