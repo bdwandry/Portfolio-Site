@@ -50,6 +50,7 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
                     <div>
                         <hr/>
                         <h3>Your email has successfully been sent to bwandrych@bryanwandrych.com.</h3>
+                        <h3>I will reply to you as soon as I can.</h3>
                         <table style={{marginLeft: "auto", marginRight: "auto", border: "1px solid black"}}>
                             <tr>
                                 <th><td>From:</td></th>
