@@ -44,9 +44,6 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
         }).then(
             message => alert(message)
         );
-        handleEmail("");
-        handleSubject("");
-        handleBody("");
     }
 
     return (
