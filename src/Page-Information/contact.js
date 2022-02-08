@@ -73,7 +73,7 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
                     <br/>
                     <TextField
                         id="outlined-password-input"
-                        label="Email Subject"
+                        label="Subject"
                         value={subject}
                         onChange={handleSubject}
                     />
@@ -82,7 +82,7 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
                     <br/>
                     <TextField
                         id="outlined-multiline-flexible"
-                        label="Email Body"
+                        label="Message/Body"
                         multiline
                         maxRows={4}
                         value={body}
