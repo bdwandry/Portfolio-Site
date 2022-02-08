@@ -31,9 +31,21 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
         setBody(event.target.value);
     };
 
+
+    const [emailAlerts, setEmailAlerts] = React.useState("");
+    const handleEmailAlerts = (event) => {
+        setEmailAlerts(event);
+        //console.log(emailAlerts)
+    };
+
+    async function postEmail(message) {
+        //await sendEmail()
+        await handleEmailAlerts(message)
+    }
+
     //Function to send email, you must have SMTP Server running
-    function sendEmail () {
-        window.Email.send({
+    async function sendEmail () {
+        await window.Email.send({
             Host : "mail.bryanwandrych.com",
             Username : "",
             Password : "",
@@ -42,7 +54,9 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
             Subject : subject,
             Body : body
         }).then(
-            message => alert(message)
+            async message => {
+                await postEmail(message)
+            }
         );
     }
 
@@ -92,6 +106,7 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
             </Box>
 
             <Box textAlign='center'>
+                <h3>Status: {emailAlerts}</h3>
                 <br/>
                 <Button variant="contained" onClick={sendEmail}>Send Email</Button>
             </Box>
