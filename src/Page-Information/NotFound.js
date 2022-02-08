@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import error from '../Icons/about.png'
+import error from '../Icons/error.png'
 
 const NotFound = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
     handlePageLocation("404 Page Not Found");
