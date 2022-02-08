@@ -35,6 +35,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {Link, Route, Routes} from "react-router-dom";
 import {Box} from "@material-ui/core";
 import Divider from '@mui/material/Divider';
+import NotFound from "../Page-Information/NotFound";
 
 //Appbar and Drawer Styling
 const drawerWidth = 240;
@@ -201,6 +202,7 @@ function NavBar() {
                 sx={{ marginTop: 35, rflexGrow: 0, p: 1, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Routes>
+                    <Route path='*' element={<NotFound handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange} changeFavicon={changeFavicon}/>} />
                     <Route exact path='/' exact element={<Home handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange} changeFavicon={changeFavicon}/>} />
                     <Route path='/about' element={<About handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange} changeFavicon={changeFavicon}/>} />
                     <Route path='/contact' element={<Contact handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange} changeFavicon={changeFavicon}/>} />
