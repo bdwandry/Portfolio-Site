@@ -32,15 +32,42 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
     };
 
 
-    const [emailAlerts, setEmailAlerts] = React.useState("");
+    //Handling Email Sending
+    const [emailAlerts, setEmailAlerts] = React.useState("Nothing Sent");
     const handleEmailAlerts = (event) => {
         setEmailAlerts(event);
-        //console.log(emailAlerts)
     };
 
     async function postEmail(message) {
-        //await sendEmail()
         await handleEmailAlerts(message)
+    }
+
+    const emailSuccess = () => {
+        if (emailAlerts === "OK") {
+            return (
+                <center>
+                    <br/>
+                    <div>
+                        <hr/>
+                        <h3>Your email has successfully been sent to bwandrych@bryanwandrych.com.</h3>
+                        <table style={{marginLeft: "auto", marginRight: "auto", border: "1px solid black"}}>
+                            <tr>
+                                <th><td>From:</td></th>
+                                <td>{email}</td>
+                            </tr>
+                            <tr>
+                                <th><td>Subject:</td></th>
+                                <td>{subject}</td>
+                            </tr>
+                            <tr>
+                                <th><td>Email Message/Body:</td></th>
+                                <td> {body}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </center>
+            )
+        }
     }
 
     //Function to send email, you must have SMTP Server running
@@ -62,11 +89,10 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
 
     return (
         <div>
-            <h1>Contact</h1>
-            <h3>If you would like to get in contact with me, feel free to email me at bwandrych@gmail.com</h3>
-
-            <h3>Would you like to send me an email?</h3>
-
+            <br/>
+            <Box textAlign='center'>
+                <h2>Would you like to send me an email?</h2>
+            </Box>
             <Box
                 component="form"
                 sx={{
@@ -78,7 +104,7 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
                 <div>
                     <TextField
                         id="outlined-password-input"
-                        label="Your Email"
+                        label="Your Email Address"
                         value={email}
                         onChange={handleEmail}
                     />
@@ -96,9 +122,9 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
                     <br/>
                     <TextField
                         id="outlined-multiline-flexible"
-                        label="Message/Body"
+                        label="Email Message/Body"
                         multiline
-                        maxRows={4}
+                        minRows={10}
                         value={body}
                         onChange={handleBody}
                     />
@@ -110,6 +136,8 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
                 <br/>
                 <Button variant="contained" onClick={sendEmail}>Send Email</Button>
             </Box>
+
+            {emailSuccess()}
         </div>
     );
 };
