@@ -46,7 +46,6 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
         if (emailAlerts === "OK") {
             return (
                 <center>
-                    <br/>
                     <div>
                         <hr/>
                         <h3>Your email has successfully been sent to bwandrych@bryanwandrych.com.</h3>
@@ -65,6 +64,7 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
                                 <td> {body}</td>
                             </tr>
                         </table>
+                        <hr/>
                     </div>
                 </center>
             )
@@ -134,11 +134,10 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
 
             <Box textAlign='center'>
                 <h3>Status: {emailAlerts}</h3>
+                {emailSuccess()}
                 <br/>
                 <Button variant="contained" onClick={sendEmail}>Send Email</Button>
             </Box>
-
-            {emailSuccess()}
         </div>
     );
 };
