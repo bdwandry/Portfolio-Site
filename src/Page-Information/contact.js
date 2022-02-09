@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import contact from '../Icons/contact.png'
+import sendingbar from '../Icons/sendingbar.gif'
 import Button from '@mui/material/Button';
 import {Box, TextField} from "@mui/material";
 
@@ -69,10 +70,19 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
                 </center>
             )
         }
+
+        if (emailAlerts === "Sending Email") {
+            return (
+                <div>
+                    <img src={sendingbar} width={"100%"} />
+                </div>
+            )
+        }
     }
 
     //Function to send email, you must have SMTP Server running
     async function sendEmail () {
+        handleEmailAlerts("Sending Email")
         await window.Email.send({
             Host : "mail.bryanwandrych.com",
             Username : "",
@@ -97,7 +107,7 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
             <Box
                 component="form"
                 sx={{
-                    '& .MuiTextField-root': { m: 1, width: '97%' },
+                    '& .MuiTextField-root': { m: 0, width: '100%' },
                 }}
                 noValidate
                 autoComplete="off"
