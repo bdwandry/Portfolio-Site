@@ -9,6 +9,7 @@ import resume from "../Icons/resume.png";
 import minecraft from "../Icons/minecraft.png";
 import github from "../Icons/github.png"
 import linkedin from "../Icons/linkedin.png"
+import download from "../Icons/download.png"
 
 //Routing Page imports
 import Home from "../Page-Information/main";
@@ -16,6 +17,7 @@ import About from "../Page-Information/about";
 import Contact from "../Page-Information/contact";
 import Resume from "../Page-Information/resume";
 import Minecraft from "../Page-Information/minecraft";
+import Download from "../Page-Information/download"
 
 //Material UI Appbar and Drawer Styling
 import PropTypes from 'prop-types';
@@ -104,6 +106,7 @@ function NavBar() {
         {Text: "Contact", location: "/contact", Image: contact},
         {Text: "Resume", location: "/resume", Image: resume},
         {Text: "Minecraft", location: "/minecraft", Image: minecraft},
+        {Text: "Download", location: "/download", Image: download},
     ]
 
     const classes = useStyles();
@@ -208,6 +211,7 @@ function NavBar() {
                     <Route path='/contact' element={<Contact handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange} changeFavicon={changeFavicon}/>} />
                     <Route path='/resume' element={<Resume handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange} changeFavicon={changeFavicon}/>} />
                     <Route path='/minecraft' element={<Minecraft handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange} changeFavicon={changeFavicon}/>} />
+                    <Route path='/download' element={<Download handlePageLocation={handlePageLocation} handlePictureChange={handlePictureChange} changeFavicon={changeFavicon}/>} />
                 </Routes>
             </Box>
         </div>
