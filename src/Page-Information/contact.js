@@ -3,6 +3,7 @@ import contact from '../Icons/contact.png'
 import sendingbar from '../Icons/sendingbar.gif'
 import Button from '@mui/material/Button';
 import {Box, TextField} from "@mui/material";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
     handlePageLocation("Contact")
@@ -36,6 +37,12 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
     const [textField, setTextField] = React.useState(false);
     const handleTextField = (event) => {
         setTextField(event);
+    };
+
+    //Disabling SendEmail When Submit Email button is pressed
+    const [submitEmail, setSubmitEmail] = React.useState(true);
+    const handleSubmitEmail = (event) => {
+        setSubmitEmail(event);
     };
 
     //Handling Email Sending
@@ -90,6 +97,7 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
         }
     }
 
+
     function resetInformation() {
         setEmail("")
         setSubject("")
@@ -102,7 +110,7 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
         if (emailAlerts !== "OK") {
             return (
                 <div>
-                    <Button variant="contained" disabled={textField} onClick={sendEmail}>Send Email</Button>
+                    <Button variant="contained" disabled={submitEmail} onClick={sendEmail}>Send Email</Button>
                 </div>
             )
         } else {
@@ -114,6 +122,11 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
         }
     }
 
+
+    //Google's Captcha
+    function onChange() {
+        handleSubmitEmail(false)
+    }
 
         //Function to send email, you must have SMTP Server running
     async function sendEmail () {
@@ -183,7 +196,12 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
             <Box textAlign='center'>
                 <h3>Status: {emailAlerts}</h3>
                 {emailSuccess()}
-                <br/>
+                <center>
+                    <ReCAPTCHA
+                        sitekey="6Ldn6XgeAAAAADxC7s6fxMSq3nMGQPd2yhShBrtB"
+                        onChange={onChange}
+                    />,
+                </center>
                 {sendAnotherEmail()}
             </Box>
         </div>
