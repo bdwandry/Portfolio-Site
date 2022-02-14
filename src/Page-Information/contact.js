@@ -32,16 +32,26 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
         setBody(event.target.value);
     };
 
+    //Disabling TextFields When Submit Email button is pressed
+    const [textField, setTextField] = React.useState(false);
+    const handleTextField = (event) => {
+        setTextField(event);
+    };
 
     //Handling Email Sending
     const [emailAlerts, setEmailAlerts] = React.useState("Nothing Sent");
     const handleEmailAlerts = (event) => {
         setEmailAlerts(event);
+
+        if (event === "OK") {
+            handleTextField(true)
+        }
     };
 
     async function postEmail(message) {
         await handleEmailAlerts(message)
     }
+
 
     const emailSuccess = () => {
         if (emailAlerts === "OK") {
@@ -80,7 +90,32 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
         }
     }
 
-    //Function to send email, you must have SMTP Server running
+    function resetInformation() {
+        setEmail("")
+        setSubject("")
+        setBody("")
+        setEmailAlerts("Send Another Email")
+        handleTextField(false)
+    }
+
+    const sendAnotherEmail = () => {
+        if (emailAlerts !== "OK") {
+            return (
+                <div>
+                    <Button variant="contained" disabled={textField} onClick={sendEmail}>Send Email</Button>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <Button variant="contained" onClick={resetInformation}>Send Another Email</Button>
+                </div>
+            )
+        }
+    }
+
+
+        //Function to send email, you must have SMTP Server running
     async function sendEmail () {
         handleEmailAlerts("Sending Email")
         await window.Email.send({
@@ -118,6 +153,7 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
                         label="Your Email Address"
                         value={email}
                         onChange={handleEmail}
+                        disabled={textField}
                     />
                 </div>
                 <div>
@@ -127,6 +163,7 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
                         label="Subject"
                         value={subject}
                         onChange={handleSubject}
+                        disabled={textField}
                     />
                 </div>
                 <div>
@@ -138,6 +175,7 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
                         minRows={10}
                         value={body}
                         onChange={handleBody}
+                        disabled={textField}
                     />
                 </div>
             </Box>
@@ -146,7 +184,7 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
                 <h3>Status: {emailAlerts}</h3>
                 {emailSuccess()}
                 <br/>
-                <Button variant="contained" onClick={sendEmail}>Send Email</Button>
+                {sendAnotherEmail()}
             </Box>
         </div>
     );
