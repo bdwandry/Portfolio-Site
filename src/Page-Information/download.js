@@ -12,11 +12,13 @@ const Download = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
 
     const TermuxScripts = [
         {Text: "Exagear - Easy install script - Complete with XFCE + Wine 7 (Filesystem) and Scripts to add extra features", location: "https://bryanwandrych.com/Downloads/Termux/Scripts/setup-Exagear-Debian10-XFCE-Wine7.sh", Description: "Not Yet Setup"},
+        {Text: "Youtube download to High Quality MP3 (320 khz) - Automation Script", location: "https://bryanwandrych.com/Downloads/Termux/Scripts/setup-YouTube-DL.sh", Description: "Not Yet Setup"},
     ]
 
     const TermuxFiles = [
         {Text: "Exagear Pre-Packaged Filesystem - Complete with XFCE + Wine 7", location: "https://bryanwandrych.com/Downloads/Termux/Files/Exagear-Debian-Buster-Termux.zip", Description: "Not Yet Setup"},
         {Text: "Exagear Automation Scripts - Scripts designed for automating features", location: "https://bryanwandrych.com/Downloads/Termux/Files/Exagear-Scripts.zip", Description: "Not Yet Setup"},
+        {Text: "downloadYoutube.c", location: "https://bryanwandrych.com/Downloads/Termux/Files/downloadYoutube.c", Description: "Not Yet Setup"},
     ]
 
     return (
