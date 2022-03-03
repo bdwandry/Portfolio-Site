@@ -200,7 +200,8 @@ const Contact = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
                     <ReCAPTCHA
                         sitekey="6Ldn6XgeAAAAADxC7s6fxMSq3nMGQPd2yhShBrtB"
                         onChange={onChange}
-                    />,
+                    />
+                    <br/>
                 </center>
                 {sendAnotherEmail()}
             </Box>
