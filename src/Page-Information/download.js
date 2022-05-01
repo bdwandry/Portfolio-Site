@@ -20,6 +20,7 @@ const Download = ({handlePageLocation, handlePictureChange, changeFavicon}) => {
         {Text: "Alpine - Pre-Packaged Filesystem (Fresh Install) - User Account: 'root'; Password: [leave blank - no password]", location: "https://bryanwandrych.com/Downloads/Termux/Files/Alpine-Fresh-Install.zip", Description: "Not Yet Setup"},
         {Text: "Exagear - Pre-Packaged Filesystem - Complete with XFCE + Wine 7", location: "https://bryanwandrych.com/Downloads/Termux/Files/Exagear-Debian-Buster-Termux.zip", Description: "Not Yet Setup"},
         {Text: "Exagear - Automation Scripts - Scripts designed for automating features", location: "https://bryanwandrych.com/Downloads/Termux/Files/Exagear-Scripts.zip", Description: "Not Yet Setup"},
+        {Text: "Ubuntu 22.04 - Pre-Packaged Filesystem - Proot-Distro Environment", location: "https://bryanwandrych.com/Downloads/Termux/Files/ubuntu-22.04.tar.gz", Description: "Not Yet Setup"},
         {Text: "downloadYoutube.c", location: "https://bryanwandrych.com/Downloads/Termux/Files/downloadYoutube.c", Description: "Not Yet Setup"},
     ]
 
